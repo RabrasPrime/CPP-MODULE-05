@@ -10,6 +10,13 @@
 
 class PresidentialPardonForm
 {
+	private:
+		std::string	_target;
+	public:
+		PresidentialPardonForm(const std::string& target);
+		~PresidentialPardonForm();
+		PresidentialPardonForm(const PresidentialPardonForm& other);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
 };
 
 
