@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = nightmare_with_form
+NAME = a_bigger_nightmare
 
 #=-=-=-=-=-=-FILES-=-=-=-=-=-=#
 
@@ -31,6 +31,9 @@ DEPS_BONUS        =   $(patsubst %.cpp, $(BUILD_DIR)%.d, $(SRC_BONUS))
 SRC =   main.cpp \
 		Bureaucrat.cpp \
 		Form.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
 
 #=-=-=-=-=-=-INCLUDES-=-=-=-=-=#
 
