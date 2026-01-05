@@ -10,6 +10,7 @@ class RobotomyRequestForm
 {
 	private:
 		std::string	_target;
+		virtual void executeAction() const;
 	public:
 		RobotomyRequestForm(const std::string& target);
 		~RobotomyRequestForm();

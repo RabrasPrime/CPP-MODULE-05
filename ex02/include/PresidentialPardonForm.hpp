@@ -12,6 +12,7 @@ class PresidentialPardonForm
 {
 	private:
 		std::string	_target;
+		virtual void executeAction() const;
 	public:
 		PresidentialPardonForm(const std::string& target);
 		~PresidentialPardonForm();
