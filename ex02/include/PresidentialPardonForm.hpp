@@ -8,7 +8,7 @@
 #include <string>
 #include "Form.hpp"
 
-class PresidentialPardonForm
+class PresidentialPardonForm : public Form
 {
 	private:
 		std::string	_target;

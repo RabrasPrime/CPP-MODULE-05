@@ -5,8 +5,10 @@
 #ifndef CPP_MODULE_05_SHRUBBERYCREATIONFORM_HPP
 #define CPP_MODULE_05_SHRUBBERYCREATIONFORM_HPP
 
+#include <string>
+#include "Form.hpp"
 
-class ShrubberyCreationForm
+class ShrubberyCreationForm : public Form
 {
 	private:
 		std::string	_target;

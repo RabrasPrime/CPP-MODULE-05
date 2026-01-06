@@ -5,8 +5,10 @@
 #ifndef CPP_MODULE_05_ROBOTOMYREQUESTFORM_HPP
 #define CPP_MODULE_05_ROBOTOMYREQUESTFORM_HPP
 
+#include <string>
+#include "Form.hpp"
 
-class RobotomyRequestForm
+class RobotomyRequestForm : public Form
 {
 	private:
 		std::string	_target;
