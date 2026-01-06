@@ -7,39 +7,45 @@
 #include <iostream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
-    : Form("ShrubberyCreationForm", 145, 137), _target(target) {}
+    : AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
-    : Form(other), _target(other._target) {}
+    : AForm(other), _target(other._target) {}
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
-{
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
     if (this != &other) {
-        Form::operator=(other);
+        AForm::operator=(other);
         _target = other._target;
     }
     return *this;
 }
 
-void ShrubberyCreationForm::executeAction() const
-{
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
+    if (!isSigned())
+        throw AForm::FormNotSignedException();
+    if (executor.getGrade() > getExecuteGrade())
+        throw AForm::GradeTooLowException();
+
     std::ofstream outfile((_target + "_shrubbery").c_str());
     if (!outfile) {
         std::cerr << "Error creating file: " << _target + "_shrubbery" << std::endl;
         return;
     }
 
-    outfile << "       _-_" << std::endl;
-    outfile << "    /~~   ~~\\" << std::endl;
-    outfile << " /~~         ~~\\" << std::endl;
-    outfile << "{               }" << std::endl;
-    outfile << " \\  _-     -_  /" << std::endl;
-    outfile << "   ~  \\\\ //  ~" << std::endl;
-    outfile << "_- -   | | _- _" << std::endl;
-    outfile << "  _ -  | |   -_" << std::endl;
-    outfile << "      // \\\\" << std::endl;
-
+    outfile << "       _-_\n"
+               "    /~~   ~~\\\n"
+               " /~~         ~~\\\n"
+               "{               }\n"
+               " \\  _-     -_  /\n"
+               "   ~  \\\\ //  ~\n"
+               "_- -   | | _- _\n"
+               "  _ -  | |   -_\n"
+               "      // \\\\\n";
     outfile.close();
+}
+
+std::string ShrubberyCreationForm::getTarget() const {
+    return _target;
 }

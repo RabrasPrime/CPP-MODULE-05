@@ -8,27 +8,39 @@
 #include <sys/time.h>
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-    : Form("RobotomyRequestForm", 72, 45), _target(target) {}
+    : AForm("RobotomyRequestForm", 72, 45), _target(target) {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
-    : Form(other), _target(other._target) {}
+    : AForm(other), _target(other._target) {}
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
-{
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other) {
     if (this != &other) {
-        Form::operator=(other);
+        AForm::operator=(other);
         _target = other._target;
     }
     return *this;
 }
 
-void RobotomyRequestForm::executeAction() const
-{
-    std::cout << "Bzzzz... Vrrrrr... *drilling noises*" << std::endl;
-    if (std::rand() % 2)
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
+    if (!isSigned())
+        throw AForm::FormNotSignedException();
+    if (executor.getGrade() > getExecuteGrade())
+        throw AForm::GradeTooLowException();
+
+    struct timeval time;
+    gettimeofday(&time, NULL);
+    srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
+    std::cout << "Bzzzzzz... Vrrrrrr... (drilling noises)" << std::endl;
+    if (rand() % 2 == 0) {
         std::cout << _target << " has been robotomized successfully!" << std::endl;
-    else
+    } else {
         std::cout << "Robotomy failed on " << _target << "." << std::endl;
+    }
 }
+
+std::string RobotomyRequestForm::getTarget() const {
+    return _target;
+}
+

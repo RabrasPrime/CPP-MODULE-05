@@ -6,18 +6,20 @@
 #define CPP_MODULE_05_ROBOTOMYREQUESTFORM_HPP
 
 #include <string>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class RobotomyRequestForm : public Form
+class RobotomyRequestForm : public AForm
 {
 	private:
 		std::string	_target;
-		virtual void executeAction() const;
 	public:
 		RobotomyRequestForm(const std::string& target);
 		~RobotomyRequestForm();
 		RobotomyRequestForm(const RobotomyRequestForm& other);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
+
+		virtual void execute(const Bureaucrat& executor) const;
+		std::string getTarget() const;
 };
 
 

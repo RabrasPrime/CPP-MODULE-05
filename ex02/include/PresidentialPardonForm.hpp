@@ -6,18 +6,20 @@
 #define CPP_MODULE_05_PRESIDENTIALPARDONFORM_HPP
 
 #include <string>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class PresidentialPardonForm : public Form
+class PresidentialPardonForm : public AForm
 {
 	private:
 		std::string	_target;
-		virtual void executeAction() const;
 	public:
 		PresidentialPardonForm(const std::string& target);
 		~PresidentialPardonForm();
 		PresidentialPardonForm(const PresidentialPardonForm& other);
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
+
+		virtual void execute(const Bureaucrat& executor) const;
+		std::string getTarget() const;
 };
 
 

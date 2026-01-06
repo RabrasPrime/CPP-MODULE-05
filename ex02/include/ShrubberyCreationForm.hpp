@@ -6,18 +6,20 @@
 #define CPP_MODULE_05_SHRUBBERYCREATIONFORM_HPP
 
 #include <string>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class ShrubberyCreationForm : public Form
+class ShrubberyCreationForm : public AForm
 {
 	private:
 		std::string	_target;
-		virtual void executeAction() const;
 	public:
 		ShrubberyCreationForm(const std::string& target);
 		~ShrubberyCreationForm();
 		ShrubberyCreationForm(const ShrubberyCreationForm& other);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
+
+		virtual void execute(const Bureaucrat& executor) const;
+		std::string getTarget() const;
 };
 
 
