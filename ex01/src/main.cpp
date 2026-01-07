@@ -1,12 +1,12 @@
-/*
+
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #define DOCTEST_CONFIG_NO_POSIX_SIGNALS
 #include "doctest.h"
-*/
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include <iostream>
-/*
+
 TEST_CASE("Bureaucrat and Form Interaction") {
     Bureaucrat b("Alice", 50);
     Form f("TopSecret", 45, 30);
@@ -52,8 +52,8 @@ TEST_CASE("Form Creation") {
         CHECK_THROWS_AS(Form("InvalidForm", 100, 151), Form::GradeTooLowException);
     }
 }
-*/
 
+*/
 int main()
 {
     try {
@@ -76,3 +76,4 @@ int main()
 
     return 0;
 }
+/*

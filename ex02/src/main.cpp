@@ -4,7 +4,6 @@
 #include "doctest.h"
 
 #include "Bureaucrat.hpp"
-#include "Intern.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -126,28 +125,6 @@ TEST_CASE("AForm Creation") {
         CHECK(pardonForm.isSigned() == false);
         CHECK(pardonForm.getSignGrade() == 25);
         CHECK(pardonForm.getExecuteGrade() == 5);
-    }
-}
-
-TEST_CASE("Intern Form Creation") {
-    Intern intern;
-
-    SUBCASE("Creating Known Forms") {
-        AForm* shrubberyForm = intern.makeForm("shrubbery creation", "Home");
-        CHECK(shrubberyForm->getName() == "ShrubberyCreationForm");
-        delete shrubberyForm;
-
-        AForm* robotomyForm = intern.makeForm("robotomy request", "Bob");
-        CHECK(robotomyForm->getName() == "RobotomyRequestForm");
-        delete robotomyForm;
-
-        AForm* pardonForm = intern.makeForm("presidential pardon", "Charlie");
-        CHECK(pardonForm->getName() == "PresidentialPardonForm");
-        delete pardonForm;
-    }
-
-    SUBCASE("Creating Unknown Form") {
-        CHECK_THROWS_AS(intern.makeForm("unknown form", "Target"), Intern::UnknownFormException);
     }
 }
 
