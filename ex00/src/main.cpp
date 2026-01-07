@@ -63,7 +63,7 @@ int main()
 
         Bureaucrat b2("Bob", 0);
     } catch (const std::exception& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
 
     try {

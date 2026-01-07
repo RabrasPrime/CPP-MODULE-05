@@ -30,7 +30,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 
     std::ofstream outfile((_target + "_shrubbery").c_str());
     if (!outfile) {
-        std::cerr << "Error creating file: " << _target + "_shrubbery" << std::endl;
+        std::cout << "Error creating file: " << _target + "_shrubbery" << std::endl;
         return;
     }
 
