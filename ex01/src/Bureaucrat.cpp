@@ -52,12 +52,6 @@ void Bureaucrat::signForm(Form& form) const
     }
 }
 
-Bureaucrat operator<<(Bureaucrat& b, Form& f)
-{
-    b.signForm(f);
-    return b;
-}
-
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
     os << b.getName() << ", bureaucrat grade " << b.getGrade();
     return os;

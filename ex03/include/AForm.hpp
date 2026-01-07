@@ -47,6 +47,6 @@ class AForm {
         };
 };
 
-
+std::ostream& operator<<(std::ostream& os, const AForm& f);
 
 #endif //FORM_HPP
