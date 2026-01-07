@@ -2,8 +2,8 @@
 // Created by tjooris on 1/5/26.
 //
 
-#ifndef CPP_MODULE_05_SHRUBBERYCREATIONFORM_HPP
-#define CPP_MODULE_05_SHRUBBERYCREATIONFORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include <string>
 #include "AForm.hpp"
