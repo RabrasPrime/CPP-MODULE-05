@@ -53,7 +53,7 @@ TEST_CASE("Form Creation") {
     }
 }
 
-*/
+/*
 int main()
 {
     try {
@@ -76,4 +76,4 @@ int main()
 
     return 0;
 }
-/*
+*/
