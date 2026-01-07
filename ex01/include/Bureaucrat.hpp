@@ -38,6 +38,6 @@ class Bureaucrat {
         };
 };
 
-
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
 #endif //BUREAUCRAT_HPP
